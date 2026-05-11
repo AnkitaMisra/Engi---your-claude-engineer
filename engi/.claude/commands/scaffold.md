@@ -1,7 +1,7 @@
 # /scaffold — generate a new module, service, or feature
 # Usage: /scaffold [type] [name]
 # Example: /scaffold service PaymentService
-# Example: /scaffold endpoint /api/v1/reconcile
+# Example: /scaffold endpoint /api/v1/users
 # Delegates to the scaffold skill — reads SCRATCHPAD.md to infer patterns first
 
 Run the scaffold skill to generate a new component that matches the existing codebase conventions.

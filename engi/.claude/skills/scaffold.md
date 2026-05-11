@@ -13,7 +13,7 @@ allowed-tools: [Read, Grep, Glob, Write, Bash]
 
 Ask the user (or extract from context):
 - What type of thing to create: API endpoint / service / repository / model / worker / CLI command / other
-- Name of the new thing (e.g. "PaymentService", "reconciliation endpoint", "export worker")
+- Name of the new thing (e.g. "UserService", "notifications endpoint", "export worker")
 - Any specific behaviour it should have
 
 ## Step 2 — Read existing patterns

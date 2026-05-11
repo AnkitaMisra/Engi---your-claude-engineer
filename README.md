@@ -90,7 +90,7 @@ PRD → Architect → Regression → TECH_DOC_{feature}.md
 
 1. **Architect** — implementation plan, trade-offs, phased rollout
 2. **Regression** — edge cases, risk register, historical hotspots
-3. **Tech doc** — reconciles both, every conflict explicitly resolved
+3. **Tech doc** — merges both, every conflict explicitly resolved
 
 ---
 
