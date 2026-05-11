@@ -7,9 +7,9 @@
 ## Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/engi
+git clone https://github.com/AnkitaMisra/Engi---your-claude-engineer.git ~/engi
 cd your-repo
-bash ~/engi/setup.sh
+bash ~/engi/engi/setup.sh
 nano CLAUDE.md   # fill in 5 fields
 claude           # open Claude Code
 ```

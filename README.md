@@ -52,11 +52,11 @@
 
 ```bash
 # 1. Clone engi
-git clone https://github.com/YOUR_USERNAME/engi
+git clone https://github.com/AnkitaMisra/Engi---your-claude-engineer.git ~/engi
 
 # 2. From your repo root — run setup
 cd your-repo
-bash ~/engi/setup.sh
+bash ~/engi/engi/setup.sh
 
 # 3. Fill in your project details
 nano CLAUDE.md
@@ -131,7 +131,7 @@ Each skill and command is a single markdown file — easy to read and modify.
 
 1. Fork this repo
 2. `git checkout -b feat/my-improvement`
-3. Edit `.claude/skills/*.md` or `.claude/commands/*.md`
+3. Edit `engi/.claude/skills/*.md` or `engi/.claude/commands/*.md`
 4. Open a PR
 
 ---
