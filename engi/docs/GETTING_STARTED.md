@@ -4,13 +4,13 @@
 - Claude Code CLI: `npm install -g @anthropic-ai/claude-code`
 - Claude account (claude.ai) — no API keys needed
 
-## 5-minute setup
+## Setup
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/engi
 cd your-repo
 bash ~/engi/setup.sh
-nano CLAUDE.md   # fill in your project details
+nano CLAUDE.md   # fill in 5 fields
 claude           # open Claude Code
 ```
 
@@ -19,7 +19,7 @@ claude           # open Claude Code
 ```bash
 explore this codebase     # map architecture → SCRATCHPAD.md
 /review                   # review current changes
-/pipeline PRD.md          # full PRD → tech doc pipeline
+/pipeline PRD.md          # PRD → full tech doc
 ```
 
 ## Command reference
@@ -30,26 +30,12 @@ explore this codebase     # map architecture → SCRATCHPAD.md
 | `/pipeline` | Starting a new feature from a PRD |
 | `/review` | Before every PR |
 | `/ship` | Before every commit |
-| `/test` | When unsure about test coverage |
+| `/test` | Check test coverage gaps |
 | `/explain src/file.py` | Unfamiliar code |
 | `/debug` | Any non-obvious bug |
 | `/scaffold service Foo` | New module from existing patterns |
 | `/handoff` | End of every session |
-| `/docs` | If docs/README.md gets out of sync |
 | `/vulnerability-check` | Security scan + fix PRs |
-
-## Skill reference
-
-| Skill | Trigger phrase |
-|-------|---------------|
-| `explore-codebase` | "explore this codebase" |
-| `architect` | "architect this PRD" |
-| `regression` | "run regression on this plan" |
-| `tech-doc` | "tech-doc" or `/pipeline` |
-| `code-review` | "review this code" |
-| `write-tests` | "write tests for src/file.py" |
-| `write-docs` | "write docs for src/file.py" |
-| `vulnerability-check` | `/vulnerability-check` |
 
 ## Optional integrations
 

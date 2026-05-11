@@ -29,11 +29,11 @@
 | `/ship` | Pre-commit checklist — catches common mistakes |
 | `/test` | Identifies test coverage gaps |
 | `/explain` | Explains any file or function in plain English |
-| `/docs` | Regenerates `docs/README.md` index from what's actually there |
+| `/docs` | Regenerates `docs/README.md` index |
 | `/debug` | Systematic debugging with an auditable hypothesis tree |
 | `/scaffold` | Generate a new service, endpoint, or module from existing patterns |
 | `/handoff` | Write end-of-session context to `MEMORY.md` for the next session |
-| `/audit` | Quick security audit of current changes (no issues/PR) |
+| `/audit` | Quick security audit of current changes |
 | `/changelog` | Generate a changelog entry from git history |
 | `/vulnerability-check` | Full repo security scan + GitHub Issues + fix PRs + Slack |
 
@@ -58,7 +58,7 @@ git clone https://github.com/YOUR_USERNAME/engi
 cd your-repo
 bash ~/engi/setup.sh
 
-# 3. Edit CLAUDE.md with your project details
+# 3. Fill in your project details
 nano CLAUDE.md
 
 # 4. Open Claude Code
@@ -67,17 +67,17 @@ claude
 
 ---
 
-## The dev chat → structured process shift
+## The shift: dev chat → structured process
 
-**Before engi** — you paste a question, get a wall of text, copy pieces manually, and start from zero next session.
+**Before engi** — you paste a question, get a wall of text, copy pieces manually, start from zero next session.
 
-**After engi** — every workflow is structured, versioned, and resumable:
+**After engi:**
 
 ```bash
-explore this codebase   → SCRATCHPAD.md with full architecture map
-/pipeline PRD.md        → architect + regression + TECH_DOC in <5 min
-/vulnerability-check    → scan → issues → fix PRs, same session
-/handoff                → MEMORY.md so next session picks up instantly
+explore this codebase     # maps architecture → SCRATCHPAD.md
+/pipeline PRD.md          # arch plan + risk register in <5 min
+/vulnerability-check      # scan → issues → fix PRs, same session
+/handoff                  # MEMORY.md so next session picks up instantly
 ```
 
 ---
@@ -85,39 +85,18 @@ explore this codebase   → SCRATCHPAD.md with full architecture map
 ## The engineering intelligence pipeline
 
 ```
-PRD → Architect agent → Regression agent → TECH_DOC_{feature}.md
+PRD → Architect → Regression → TECH_DOC_{feature}.md
 ```
 
-1. **Architect** reads PRD as a senior engineer — implementation plan, trade-offs, phased rollout
-2. **Regression** stress-tests the plan — edge cases, risk register, historical hotspots
-3. **Tech doc** reconciles both — every conflict explicitly resolved, nothing silently blended
-
-Output: a single versioned `TECH_DOC_{feature}.md` saved to your repo.
+1. **Architect** — implementation plan, trade-offs, phased rollout
+2. **Regression** — edge cases, risk register, historical hotspots
+3. **Tech doc** — reconciles both, every conflict explicitly resolved
 
 ---
 
 ## Session memory
 
-Every session ends with `/handoff`. Claude writes `MEMORY.md`:
-- Decisions made and why
-- Files changed
-- Next steps (specific: file, function, action)
-- Open questions
-
-Next session starts by reading it. Zero re-explaining. Zero lost context.
-
----
-
-## Security vulnerability scanning
-
-```bash
-/vulnerability-check          # scans default repo
-/vulnerability-check owner/my-service  # or target a specific repo
-```
-
-Scan → severity report → your confirmation → GitHub Issues + fix PRs → optional Slack summary.
-
-Findings ranked CRITICAL / HIGH / MEDIUM / LOW. One PR per vulnerability. Surgical fixes only.
+`/handoff` writes `MEMORY.md` at the end of every session — decisions, files changed, next steps. Next session reads it and picks up instantly. Zero lost context.
 
 ---
 
@@ -125,15 +104,15 @@ Findings ranked CRITICAL / HIGH / MEDIUM / LOW. One PR per vulnerability. Surgic
 
 | Task | Model |
 |------|-------|
-| Single-file lookup, explain one function | Haiku |
-| Code review, write a service, debug, most tasks | **Sonnet (default)** |
-| Full PRD pipeline, system-wide refactor, security audit | Opus |
+| Single-file lookup, quick Q&A | Haiku |
+| Code review, write a service, debug | **Sonnet (default)** |
+| Full PRD pipeline, security audit | Opus |
 
 ---
 
 ## Optional integrations
 
-Add to `.mcp.json` in your repo root to unlock richer workflows:
+Add `.mcp.json` to your repo:
 
 ```json
 {
@@ -144,17 +123,15 @@ Add to `.mcp.json` in your repo root to unlock richer workflows:
 }
 ```
 
-The vulnerability-check skill degrades gracefully to report-only mode if no integrations are configured.
-
 ---
 
 ## Contributing
 
-Each skill and command is a single markdown file — easy to read, easy to modify.
+Each skill and command is a single markdown file — easy to read and modify.
 
 1. Fork this repo
-2. `git checkout -b feat/improve-scaffold-skill`
-3. Edit the relevant `.claude/skills/*.md` or `.claude/commands/*.md`
+2. `git checkout -b feat/my-improvement`
+3. Edit `.claude/skills/*.md` or `.claude/commands/*.md`
 4. Open a PR
 
 ---
