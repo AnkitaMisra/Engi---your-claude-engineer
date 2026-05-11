@@ -47,25 +47,25 @@ Team: TEAM_NAME
 - PR description must explain WHY not just what
 
 ## Model routing
-# Match task weight to model — default to Sonnet for everything unless noted below
-#
-# Haiku  (fastest, cheapest)  — single-file lookups, grep searches, quick Q&A,
-#                                generating a single test, explaining one function
-# Sonnet (default)            — code review, writing a service/endpoint, debugging,
-#                                refactoring, writing docs, most day-to-day tasks
-# Opus   (most capable)       — full PRD → architect pipeline, system-wide refactors,
-#                                security audit, anything touching 5+ files or requiring
-#                                deep reasoning across the whole codebase
-#
-# How to invoke a specific model in Claude Code:
-#   claude --model claude-haiku-4-5-20251001   (or set in .claude/settings.json)
-#   claude --model claude-sonnet-4-6            (default)
-#   claude --model claude-opus-4-7
-#
-# Skills that always use Opus (set context: fork — they spawn their own agent):
-#   architect, tech-doc, vulnerability-check, debug (complex bugs)
-# Skills that use Haiku by default:
-#   explore-codebase (read-only crawl), write-docs (single file)
+
+Match task weight to model — default to Sonnet for everything unless noted below.
+
+| Model | When to use |
+|-------|-------------|
+| Haiku (fastest) | Single-file lookups, grep searches, quick Q&A, generating a single test, explaining one function |
+| Sonnet (default) | Code review, writing a service/endpoint, debugging, refactoring, writing docs, most day-to-day tasks |
+| Opus (most capable) | Full PRD → architect pipeline, system-wide refactors, security audit, anything touching 5+ files or requiring deep reasoning |
+
+How to invoke a specific model:
+
+```
+claude --model claude-haiku-4-5-20251001
+claude --model claude-sonnet-4-6        # default
+claude --model claude-opus-4-7
+```
+
+Skills that always use Opus: `architect`, `tech-doc`, `vulnerability-check`, `debug` (complex bugs)
+Skills that use Haiku by default: `explore-codebase`, `write-docs`
 
 ## Always do
 - Check for existing patterns before introducing new ones
